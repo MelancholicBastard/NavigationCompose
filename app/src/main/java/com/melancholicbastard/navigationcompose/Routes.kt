@@ -4,4 +4,5 @@ sealed class Routes(val route: String) {    // sealed - класс хранящ�
     object Accounting: Routes("Accounting")
     object Marketing: Routes("Marketing")
     object Coworking: Routes("Coworking")
+    object People: Routes("People")
 }

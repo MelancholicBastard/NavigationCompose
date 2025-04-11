@@ -11,11 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun Marketing(
+fun People(
     padding: PaddingValues,
     id: Int = 0
 ) {
-    val room = SingletonRoom.rooms.firstOrNull {it -> it.id == id}!!
+    val human = SingletonPeople.humans.firstOrNull {it -> it.id == id}!!
 
     Column(
         verticalArrangement = Arrangement.Top,
@@ -23,9 +23,8 @@ fun Marketing(
         modifier = Modifier.fillMaxSize()
             .padding(padding)
     ) {
-        Text(""+room.id)
-        Text(room.name)
-        Text(""+room.color)
-        Text(""+room.size)
+        Text(""+human.id)
+        Text(human.humanName)
+        Text(""+human.humanJob)
     }
 }
