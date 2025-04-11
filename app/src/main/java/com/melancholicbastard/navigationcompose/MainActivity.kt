@@ -50,6 +50,7 @@ class MainActivity : ComponentActivity() {
             TopLevelRoutes("Coworking", Routes.Coworking.route, Icons.Outlined.Warning),
             TopLevelRoutes("People", Routes.People.route, Icons.Outlined.AccountCircle)
         )
+        var human_id: Int? = null
 
 
         setContent {
@@ -93,10 +94,10 @@ class MainActivity : ComponentActivity() {
                             Routes.People.route + "/{human_id}",
                             arguments = listOf(navArgument("human_id") {type = NavType.IntType})
                         ) { entry ->
-                            val human_id = entry.arguments!!.getInt("human_id")
-                            People(innerPadding, human_id)
+                            human_id = entry.arguments!!.getInt("human_id")
+                            People(innerPadding, human_id!!)
                         }
-                        composable(Routes.People.route) { People(innerPadding) }
+                        composable(Routes.People.route) { human_id?.let { People(innerPadding, it) } }
 
                     }
 
